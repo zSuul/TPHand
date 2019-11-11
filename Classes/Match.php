@@ -16,14 +16,14 @@ class Match {
         $deuxiemeDelimitation = explode(':', $premiereDelimitation[0]);
         $troisiemeDelimitation = explode(':', $premiereDelimitation[1]);
         
-        $this->domicile = $deuxiemeDelimitation[0];
-        $this->scoreDomicile = $deuxiemeDelimitation[1];
-        $this->exterieur = $troisiemeDelimitation[0];
-        $this->scoreExterieur = $troisiemeDelimitation[1];
+        $this->domicile = trim($deuxiemeDelimitation[0]);
+        $this->scoreDomicile = (int) trim($deuxiemeDelimitation[1]);
+        $this->exterieur = trim($troisiemeDelimitation[0]);
+        $this->scoreExterieur = (int) trim($troisiemeDelimitation[1]);
     }
 
     public function __toString() {
-        return strtoupper($this->domicile . ":" . $this->scoreDomicile . " / " . $this->exterieur . ":" . $this->scoreExterieur . "\n");
+        return strtoupper($this->domicile . ":" . $this->scoreDomicile . " / " . $this->exterieur . ":" . $this->scoreExterieur . "<br/>");
     }
 }
 

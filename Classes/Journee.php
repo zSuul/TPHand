@@ -18,11 +18,11 @@ class Journee {
             $premiereLigne = explode(":", $buffer);
             $premiereLigne[2] = trim($premiereLigne[2]);
             $this->numero = $premiereLigne[0];
-            setlocale(LC_TIME, "fr_FR");
             //$this->debut = DateTime::createFromFormat("d/m/Y", $premiereLigne[1]); En anglais.
             //$this->fin = DateTime::createFromFormat("d/m/Y", $premiereLigne[2]); En anglais.
             $this->debut = strtotime($premiereLigne[1]);
             $this->fin = strtotime($premiereLigne[2]);
+            setlocale(LC_TIME, "fr_FR.utf8","fra");
 
             while(($buffer = fgets($handle, 256)) !== false){
                 $this->lesMatches[] = $buffer;

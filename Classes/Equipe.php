@@ -19,14 +19,13 @@ class Equipe {
 
 	public function __construct(string $nom){
 		$this->nom = $nom;
+
 	}
 
 	public function __toString(){
-		return "+--------------------+----------+----------+----------+----------+----------+----------+----------+----------+ <br/>"
-		     . "| Club                    | Points    | Joués     | Gagnés  | Perdus   | Nuls     | Pour       | Contre   | Diff.     | <br/>"
-		     . "+--------------------+----------+----------+----------+----------+----------+----------+----------+----------+ <br/>"
-		   . "|" . $this->nom . "        | " . $this->points . " | " . $this->joues . " | " . $this->gagnes . " | " . $this->perdus . " | " . $this->nuls . " | " . $this->pour . " | " . $this->contre . " | " . $this->diff . " |";
-	}
+
+		return "Nom : " . $this->nom . ". Points : " . $this->points . ". Joués : " . $this->joues . ". Gagnés : " . $this->gagnes . ". Perdus : " . $this->perdus . ". Nuls : " . $this->nuls . ". Pour : " . $this->pour . ". Contre : " . $this->contre . ". Diff : " . $this->diff;
+	}	
 
 	public function enregistreResultat(int $marques, int $encaisses){
 		$this->marques = $marques;
@@ -42,8 +41,10 @@ class Equipe {
 
 		$this->points = $this->gagnes * 2 + $this->nuls;
 		$this->joues = $this->gagnes + $this->nuls + $this->perdus;
+		$this->pour = $marques;
+		$this->contre = $encaisses;
+		$this->diff = $this->pour - $this->contre;
 	}
-
 }
 
 ?>
