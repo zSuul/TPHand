@@ -18,8 +18,7 @@ class Equipe {
 	public $diff;
 
 	public function __construct(string $nom){
-		$this->nom = $nom;
-
+			$this->nom = $nom;
 	}
 
 	public function __toString(){
@@ -28,21 +27,19 @@ class Equipe {
 	}	
 
 	public function enregistreResultat(int $marques, int $encaisses){
-		$this->marques = $marques;
-		$this->ecaisses = $encaisses;
-
+		
 		if($marques > $encaisses){
-			$this->gagnes += 1;
+			$this->gagnes++;
 		}elseif($marques < $encaisses){
-			$this->perdus += 1;
+			$this->perdus++;
 		}else{
-			$this->nuls += 1;
+			$this->nuls++;
 		}
 
 		$this->points = $this->gagnes * 2 + $this->nuls;
 		$this->joues = $this->gagnes + $this->nuls + $this->perdus;
-		$this->pour = $marques;
-		$this->contre = $encaisses;
+		$this->pour += $marques;
+		$this->contre += $encaisses;
 		$this->diff = $this->pour - $this->contre;
 	}
 }

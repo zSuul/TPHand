@@ -9,9 +9,10 @@ require __DIR__ . "/../autoload.php";
 $classementv1Test = new Classementv1("../equipes.txt");
 $journeeTest1 = new Journee("../Journees/journee01.txt");
 $journeeTest2 = new Journee("../Journees/journee02.txt");
+$journeeTest3 = new Journee("../Journees/journee03.txt");
 $classementv1Test->enregistre($journeeTest1);
-//$classementv1Test->affiche();
+$classementv1Test->affiche();
 $classementv1Test->enregistre($journeeTest2);
-//$classementv1Test->affiche();
+$classementv1Test->affiche();
 
 ?>
