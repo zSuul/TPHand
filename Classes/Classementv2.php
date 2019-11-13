@@ -5,7 +5,7 @@
  * Author : Boris Weber - Université de Grenoble Alpes - IUT de Valence
  */
 
-Class Classementv1 {
+Class Classementv2 {
 
 	public $lesEquipes;
 	public $maxLongueurNom = 29;
@@ -29,12 +29,31 @@ Class Classementv1 {
 		}
 	}
 
+	/*function compare($a, $b){
+
+	    if($a->points > $b->points)
+	    	return-1;
+	    elseif($a->points < $b->points)
+	    	return 1 ;
+	    elseif($a->diff > $b->diff)
+	    	return -1 ;			
+	}*/
+
 	public function affiche(){
 
 		echo  "+------------------------------------------+----------+----------+----------+----------+----------+----------+----------+----------+ <br/>"
 		    . " | Club                                                | Points    | Joués     | Gagnés  | Perdus   | Nuls     | Pour       | Contre   | Diff.      | <br/>"
 		    . "+------------------------------------------+----------+----------+----------+----------+----------+----------+----------+----------+ <br/>";
-
+		    
+		    usort($this->lesEquipes, function($a, $b){
+		    if($a->points > $b->points)
+		    	return-1;
+		    elseif($a->points < $b->points)
+		    	return 1 ;
+		    elseif($a->diff > $b->diff)
+		    	return -1 ;			
+			});
+		    
 		foreach ($this->lesEquipes as $uneEquipe) {
 
 			foreach ($this->lesJournees as $uneJournee) {
@@ -51,7 +70,6 @@ Class Classementv1 {
 
 			echo " | "  . $uneEquipe->nom . " | " . $uneEquipe->points . " | " . $uneEquipe->joues . " | " . $uneEquipe->gagnes . " | " . $uneEquipe->perdus . " | " . $uneEquipe->nuls . " | " . $uneEquipe->pour . " | " . $uneEquipe->contre . " | " . $uneEquipe->diff . "</br>" 
 			. "+------------------------------------------+----------+----------+----------+----------+----------+----------+----------+----------+ <br/>";
-
 
 		}
 	}
