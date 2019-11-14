@@ -29,7 +29,7 @@ Class Classementv2 {
 		}
 	}
 
-	public function compare($a, $b){
+	public function compare($a, $b){ // Fonction "compare" pour la question 4 a)
 
 	    if($a->points > $b->points)
 	    	return -1;
@@ -41,6 +41,30 @@ Class Classementv2 {
             return 1 ;
 	}
 
+	public function compare($a, $b){ // Fonction "compare" pour la question 4 a)
+
+	    if($a->points > $b->points)
+	    	return -1;
+	    else if($a->points < $b->points)
+	    	return 1 ;
+	    else if($a->diff > $b->diff)
+            return -1 ;
+        else if($a->diff < $b->diff)
+            return 1 ;
+	}
+
+	/*public function compare($a, $b){ // Fonction "compare" pour la question 4 b)
+
+	    if($a->points > $b->points)
+	    	return -1;
+	    else if($a->points < $b->points)
+	    	return 1 ;
+	    else if($a->diff > $b->diff)
+            return -1 ;
+        else if($a->diff < $b->diff)
+            return 1 ;
+	}*/
+
 	public function affiche(){
 
         $nombreDeTiretsNom = str_repeat("-", $this->maxLongueurNom+1);
@@ -51,14 +75,17 @@ Class Classementv2 {
         printf("\n");
         printf("| %-" . $this->maxLongueurNom . "s|", "Club");
         printf(" %8s|", "Points");
-        printf(" %8s|", "Joués");
-        printf(" %8s|", "Gagnés");
+        printf(" %9s|", "Joués");
+        printf(" %9s|", "Gagnés");
         printf(" %8s|", "Perdus");
         printf(" %8s|", "Nuls");
         printf(" %8s|", "Pour");
         printf(" %8s|", "Contre");
         printf(" %8s|", "Diff.");
         printf("\n");
+        printf("+%s+", $nombreDeTiretsNom);
+        for($i = 0; $i < 8; $i++)
+            printf("%s+", $nombreDeTirets);
 
 		foreach ($this->lesEquipes as $uneEquipe) {
             
