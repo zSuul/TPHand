@@ -23,7 +23,7 @@ class Match {
     }
 
     public function __toString() {
-        return strtoupper($this->domicile . ":" . $this->scoreDomicile . " / " . $this->exterieur . ":" . $this->scoreExterieur . "<br/>");
+        return strtoupper($this->domicile . ":" . $this->scoreDomicile . " / " . $this->exterieur . ":" . $this->scoreExterieur . "\n");
     }
 }
 

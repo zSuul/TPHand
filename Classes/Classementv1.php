@@ -27,13 +27,6 @@ Class Classementv1 {
 		foreach ($laJournee->lesMatches as $key => $uneJournee) {
 			$this->lesJournees[$key] = new Match($uneJournee);
 		}
-	}
-
-	public function affiche(){
-
-		echo  "+------------------------------------------+----------+----------+----------+----------+----------+----------+----------+----------+ <br/>"
-		    . " | Club                                                | Points    | Joués     | Gagnés  | Perdus   | Nuls     | Pour       | Contre   | Diff.      | <br/>"
-		    . "+------------------------------------------+----------+----------+----------+----------+----------+----------+----------+----------+ <br/>";
 
 		foreach ($this->lesEquipes as $uneEquipe) {
 
@@ -48,12 +41,20 @@ Class Classementv1 {
 					$uneEquipe->enregistreResultat($uneJournee->scoreExterieur, $uneJournee->scoreDomicile);
 				}
 			}
-
-			echo " | "  . $uneEquipe->nom . " | " . $uneEquipe->points . " | " . $uneEquipe->joues . " | " . $uneEquipe->gagnes . " | " . $uneEquipe->perdus . " | " . $uneEquipe->nuls . " | " . $uneEquipe->pour . " | " . $uneEquipe->contre . " | " . $uneEquipe->diff . "</br>" 
-			. "+------------------------------------------+----------+----------+----------+----------+----------+----------+----------+----------+ <br/>";
-
-
 		}
+	}
+
+	public function affiche(){
+
+		echo  "+------------------------------------------+----------+----------+----------+----------+----------+----------+----------+----------+ \n"
+		    . " | Club                                                | Points    | Joués     | Gagnés  | Perdus   | Nuls     | Pour       | Contre   | Diff.      | \n"
+		    . "+------------------------------------------+----------+----------+----------+----------+----------+----------+----------+----------+ \n";
+
+		foreach ($this->lesEquipes as $uneEquipe) {
+			echo " | "  . $uneEquipe->nom . " | " . $uneEquipe->points . " | " . $uneEquipe->joues . " | " . $uneEquipe->gagnes . " | " . $uneEquipe->perdus . " | " . $uneEquipe->nuls . " | " . $uneEquipe->pour . " | " . $uneEquipe->contre . " | " . $uneEquipe->diff . "</br>" 
+			. "+------------------------------------------+----------+----------+----------+----------+----------+----------+----------+----------+ \n";
+		}
+
 	}
 }
 
